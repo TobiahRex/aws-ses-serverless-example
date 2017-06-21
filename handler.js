@@ -1,5 +1,3 @@
-'use strict';
-
 // importing AWS sdk
 import AWS from 'aws-sdk';
 
@@ -19,6 +17,8 @@ let ses = new AWS.SES();
 
 // Structure of sendMail params structure:
 /*
+
+*/
 var params = {
   Destination: {  / required /
     BccAddresses: [
@@ -70,10 +70,8 @@ var params = {
 
 ses.sendEmail(params, function(err, data) {
   if (err) console.log(err, err.stack); // an error occurred
-  else     console.log(data);           // successful response
+  else console.log(data);           // successful response
 });
-
-*/
 
 // The function to send SES email message
 module.exports.sendMail = (event, context, callback) => {
